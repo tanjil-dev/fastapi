@@ -26,3 +26,10 @@ EXPOSE 8000
 
 # Command to run the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+# add entrypoint.sh
+COPY ./entrypoint.sh .
+RUN chmod +x /app/entrypoint.sh
+
+# run entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]
